@@ -15,11 +15,11 @@ m4_dnl  default quotes is way too hard.
 m4_changequote({{,}})m4_dnl 
 m4_esyscmd({{
 cd }}mycwd{{
-find -name "index.html" | while read filename; do
+find . -name "index.html" | while read filename; do
     title="$( sed -n 's/^\s*<title>\([^<]*\)<\/title>/\1/p' "$filename" )"
     short_title="$( sed -n 's/^\s*<meta name=\"short title\" content=\"\([^\"]*\)\">/"\1"/p' "$filename" )"
     ctime="$( sed -n 's/^\s*var created = new Date(\([^)]*\));/\1/p' "$filename" )"
-    mtime="$( date -u -r "$filename" "+%s000" )"
+    mtime="$( gdate -u -r "$filename" "+%s000" )"
     cat <<- EOF
     {
         "path": "${filename#.}",

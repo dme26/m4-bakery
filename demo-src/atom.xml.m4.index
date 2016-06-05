@@ -3,7 +3,7 @@
   <title><![CDATA[__SITENAME]]></title>
   <link href="__BASEURL/atom.xml" rel="self"/>
   <link href="__BASEURL/"/>
-  <updated>m4_esyscmd(`date -u --date="$1" "+%Y-%m-%dT%H:%M:%S%:z" | tr -d "\n"')</updated>
+  <updated>m4_esyscmd(`gdate -u --date="$1" "+%Y-%m-%dT%H:%M:%S%:z" | tr -d "\n"')</updated>
   <id>__SITEHOST`'__BASEURL/</id>
   <author>
     <name><![CDATA[__AUTHOR]]></name>
@@ -20,10 +20,10 @@ m4_dnl  default quotes is way too hard.
 m4_changequote({{,}})m4_dnl 
 m4_esyscmd({{
 cd }}mycwd{{
-find -name "index.html" | while read filename; do
+find . -name "index.html" | while read filename; do
     title="$( sed -n 's/^\s*<title>\([^<]*\)<\/title>/\1/p' "$filename" )"
     ctime="$( sed -n 's/^\s*var created = new Date(\([^)]*\));/\1/p' "$filename" )"
-    mtime="$( date -u -r "$filename" "+%s000" )"
+    mtime="$( gdate -u -r "$filename" "+%s000" )"
     cat <<- EOF
     <entry>
         <title type="html"><![CDATA[$title]]></title>

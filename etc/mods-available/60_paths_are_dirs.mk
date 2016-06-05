@@ -19,6 +19,6 @@
 targets := $(targets:.html=/$(DEFAULT_DOCUMENT))
 targets := $(targets:/$(basename $(DEFAULT_DOCUMENT))/$(DEFAULT_DOCUMENT)=/$(DEFAULT_DOCUMENT))
 $(DST)/$(basename $(DEFAULT_DOCUMENT)): $(DST)/$(DEFAULT_DOCUMENT).html
-	install -m 644 -D $< $@
+	ginstall -m 644 -D $< $@
 $(DST)/%/$(DEFAULT_DOCUMENT): $(DST)/%.html
-	install -m 644 -D $< $@
+	ginstall -m 644 -D $< $@

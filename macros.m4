@@ -23,9 +23,9 @@ m4_define(`DATE', `m4_dnl
 m4_dnl  Store verbatim in this variable
 m4_define(`__DATE', `$1')m4_dnl
 m4_dnl  Miliseconds since the epoch (for feeding to javascript Date() object)
-m4_define(`__DATE_MSEC', m4_esyscmd(`date -u --date="$1" "+%s000" | tr -d "\n"'))m4_dnl
+m4_define(`__DATE_MSEC', m4_esyscmd(`gdate -u --date="$1" "+%s000" | tr -d "\n"'))m4_dnl
 m4_dnl  ISO8601 format recommended by Dublin Core http://www.w3.org/TR/NOTE-datetime
-m4_define(`__DATE_ISO', m4_esyscmd(`date -u --date="$1" "+%Y-%m-%dT%H:%M:%S%:z" | tr -d "\n"'))m4_dnl
+m4_define(`__DATE_ISO', m4_esyscmd(`gdate -u --date="$1" "+%Y-%m-%dT%H:%M:%S%:z" | tr -d "\n"'))m4_dnl
 ')
 
 m4_include(`etc/color_math_macros.m4')
