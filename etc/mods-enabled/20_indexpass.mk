@@ -1,1 +1,0 @@
-../mods-available/20_indexpass.mk

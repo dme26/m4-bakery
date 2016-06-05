@@ -60,8 +60,9 @@ m4_dnl  http://datagrok.org/foo/bar/mysite then I would set:
 m4_dnl      __SITEHOST  http://datagrok.org
 m4_dnl      __BASEURL   /foo/bar/mysite
 m4_dnl
-m4_define(`__SITEHOST', `http://datagrok.github.com')
-m4_define(`__SITENAME', `datagrok/m4-bakery')
+m4_define(`__SITEHOST', `http://conferences.computer.org')
+m4_define(`__BASEURL', `/IC2E/2017')
+m4_define(`__SITENAME', `IC2E 2017')
 m4_dnl
 m4_dnl  Your Google analytics code:
 m4_dnl      m4_define(`__GACODE', `UA-XXXXXX-XX')

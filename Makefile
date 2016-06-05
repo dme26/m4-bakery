@@ -7,11 +7,11 @@
 # 	- pandoc     => easy to get vars in; pandoc becomes common target language
 # 	- m4 / jinja => harder to get vars in; html becomes common target
 
-SRC      := demo-src
-DST      := build/m4-bakery
-TEMPLATE    := $(SRC)/.site/template.html.m4
+SRC      := ../src-2017
+DST      := ../build-2017
+TEMPLATE    := $(SRC)/.site/template.htm.m4
 
-DEFAULT_DOCUMENT := index.html
+DEFAULT_DOCUMENT := index.htm
 
 # BASEPATH is the absolute path to the root on the
 # filesystem of the site build-out
@@ -19,7 +19,7 @@ BASEPATH    := $(shell readlink $(DST) || echo $(DST))
 # BASEURL is the URL path from the root of the domain to
 # the root of the site. If defined, should start with / and
 # never end with /
-BASEURL	    := /m4-bakery
+# BASEURL	    := /m4-bakery
 
 PLATFORM := $(shell uname -s)
 
@@ -73,7 +73,7 @@ default: all
 # - remove all .m4 suffixes
 # - transform all .md suffixes into .html
 # - split all the makred indices into their own variable
-sources := $(shell find -L $(SRC)/ \( -name '.site' -o -name '.git' -o -name '.gitignore' \) -prune -o -type f -print)
+sources := $(shell find -L $(SRC)/ \( -name '.site' -o -name '.git' -o -name '.gitignore' -o -name '.dir-locals.el' \) -prune -o -type f -print)
 targets := $(sources:$(SRC)/%=$(DST)/%)
 targets := $(filter-out %.inc %.swp,$(targets))
 
